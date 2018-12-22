@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;   charset = utf-8" />
+	<meta name= "viewport" content="width= device-width,initial-scale=1.0"/ >
+	<title>Water Supply & Sanitations Department</title>
+	<link rel="stylesheet  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="">
+	<script type="text/javascript">
+		//var script_url = "https://script.google.com/macros/s/AKfycbwnmfkrEsvVhlXiIxLDznW-FUcEkI6f1CGRnSarEo2dQKxzfJzr/exec
+		var script_url = "https://script.google.com/macros/s/AKfycbwnmfkrEsvVhlXiIxLDznW-FUcEkI6f1CGRnSarEo2dQKxzfJzr/exec";
+	</script>
+	<style type="text/css">
+		body {
+		  padding-top: 20px;
+		  padding-bottom: 20px;
+		  background: #eee;
+		}
+	</style>
+
+</head>
+<body>
+	<nav>
+		<section class="nav-container">
+			<aside class="logo"><img src= "" alt="hlogo"></aside>
+			<aside class="menu">
+				<div class="menu-content">
+					
+				</div>
+				
+			</aside>
+		</section>
+	</nav>		
+	<form action="insert.php" method="POST">
+  		<table>
+  			<tr>
+  				<td>
+					Circle
+				</td>
+				<td>
+					<select name="circle"  id="circle">
+						<option selected hidden>Select Circle</option>
+						<option value="C08">Bathinda</option>
+						<option value="C09">Faridkot</option>
+						<option value="C10">Ferozepur</option>
+						<option value="C12">Muktsar</option>
+					</select>
+					
+				</td>
+				<td>
+					Division
+				</td>
+				<td>
+					<input type="text" name="division" id="division" placeholder="Select Division">
+				</td>
+				<td>
+					Block
+				</td>
+				<td>
+					<input type="text" name="block" id="block" placeholder="Select Block">
+				</td>
+				<td>
+					Scheme
+				</td>
+				<td>
+					<input type="text" name="scheme" id="scheme" placeholder="Select Scheme">
+				</td>
+				<td>
+					<input type="submit" name="submit" value="Submit" style="width: 80px">
+				</td>
+
+  			</tr>
+  		</table>
+		
+	</form>
+</body>
+</html>

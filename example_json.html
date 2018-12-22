@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Make a table based on the value of a drop down menu.</h2>
+
+<select id="myselect" onchange="getvales_dd(this.value)">
+<option value="">Choose an option:</option>
+<option value="customers">Customers</option>
+<option value="products">Products</option>
+<option value="suppliers">Suppliers</option>
+</select>
+<script type="text/javascript">
+	
+	function getvales_dd(sel) {
+		
+		var tt = document.getElementById("myselect").value;
+ 	   alert(sel);
+		//var tt = document.getElementbyID("myselect").value;
+		var obj, dbParam, xmlhttp, myObj, x, txt = "";
+  		obj = { table: sel, limit: 20 };
+  dbParam = JSON.stringify(obj);
+
+
+
+		alert(dbParam);
+	}
+</script>
+
+
+
+
+
+</body>
+</html>

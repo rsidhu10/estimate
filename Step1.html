@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;   charset = utf-8" />
+	<meta name= "viewport" content="width= device-width,initial-scale=1.0"/ >
+	<title>Water Supply & Sanitations Department</title>
+	<link rel="stylesheet  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript">
+		//var script_url = "https://script.google.com/macros/s/AKfycbwnmfkrEsvVhlXiIxLDznW-FUcEkI6f1CGRnSarEo2dQKxzfJzr/exec
+		var script_url = "https://script.google.com/macros/s/AKfycbwnmfkrEsvVhlXiIxLDznW-FUcEkI6f1CGRnSarEo2dQKxzfJzr/exec";
+	</script>
+
+</head>
+<body>
+	<nav>
+		<section class="nav-container">
+			<aside class="logo"><img src= "" alt="hlogo"></aside>
+			<aside class="menu">
+				<div class="menu-content">
+					<i class="fa fa-unlock-alt"></i><a href="#" id ="login" >Login</a> | <i class="fa fa-user"></i><a href="#">Register</a>
+				</div>
+				<div class="arrow-up"></div>
+			</aside>
+			<div class="login-form">
+				<form>
+					<label>Username</label>
+					<div>
+						<input type="text" placeholder="Username" required/>
+					</div>
+					<label>Password</label>
+					<div>
+						<input type="password" placeholder="Password" required/>
+					</div>
+					<div>
+						<input type="text" value="Log In" />
+					</div>
+					<div>
+						<a href="#" style="text-decoration: none;position: relative;top: 20px;font-size: 16px;color: gray; ">Lost Your Password</a>
+					</div>
+
+				</form>
+
+			</div>	
+		</section>
+	</nav>
+<section>
+	<div class="scheme-form">
+				<form>
+					<label>Scheme Id</label>
+					<div>
+						<input type="text" placeholder="Scheme Id" required name="sch_id" id="sch_id" />
+					</div>
+					<label>Circle</label>
+					<div>
+						<input type="text" placeholder="Circle Name" required name="cir_name" id="cir_name" />
+					</div>
+
+					<label>Division</label>
+					<div>
+						<input type="text" placeholder="Division Name" required name="div_name" id="div_name" />
+					</div>
+					<label>Scheme</label>
+					<div>
+						<input type="text" placeholder="Scheme Name" required name="sch_name" id="sch_name" />
+					</div>
+					<label>Habitation</label>
+					<div>
+						<input type="text" placeholder="Habitation Name" required name="hab_name" id="hab_name" />
+					</div>
+
+
+					<div id="loader">hi</div>
+					<p id="re">there</p>
+
+					<div>
+						<input type="submit" onclick ="add_rec()"    value="Add" />
+						<input type="submit" onclick ="update_rec()" value="Update"/>
+						<input type="submit" onclick ="delete_rec()" value="Delete"/>
+						<input type="submit" onclick ="find_rec"   value="Find"/>						
+
+					</div>
+					<div id="showData"></div>
+					<div>
+						<a href="#" style="text-decoration: none;position: relative;top: 10px;font-size: 12px;color: gray; ">Central Zone</a>
+					</div>
+
+				</form>
+
+			</div>
+
+		
+</section>
+</body>
+
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		//add_rec();
+		var arrow  = $(".arrow-up");
+		var form   = $(".login-form");
+		var status = false;
+		$("#login").click(function(event){
+			event.preventDefault();
+			if(status == false){
+				arrow.fadeIn();
+				form.fadeIn();
+				status = true;
+			}else{
+				arrow.fadeOut();
+				form.fadeOut();
+				status = false;
+			}		
+		})		
+	})
+
+function test(){
+   // var mscheme = document.getElementById("#sch_id").val();
+    //var mscheme = document.getElementById("sch_id").val();
+	//	alert(mscheme);
+	var id = $("#sch_id").val();
+	alert(id);
+}
+
+</script>
+
+
+<script>
+  
+	// Make an AJAX call to Google Script
+	function add_rec() {
+		$("#re").css("visibility","hidden");
+	 	document.getElementById("loader").style.visibility = "visible";
+		$('#mySpinner').addClass('spinner');
+		var sch_id   = document.getElementById("sch_id").value;
+		var cir_name = document.getElementById("cir_name").value;
+		var div_name = document.getElementById("div_name").value;
+		var sch_name = document.getElementById("sch_name").value;
+		var hab_name = document.getElementById("hab_name").value;
+    	
+    	//var url = script_url+"?callback=ctrlq&amount="+amount+"&lastname="+lname+"&name="+name+"&id="+id1+"&action=insert";
+		
+    	var url = script_url+"?callback=ctrlq&hab_name="+hab_name+"&sch_name="+sch_name+"&div_name="+div_name+"&cir_name="+
+    	cir_name+"&sch_id="+sch_id+"&action=insert";
+		//alert(url);
+    	var request = jQuery.ajax({
+      		crossDomain: true,
+      		url: url ,
+	    	method: "GET",
+	      	dataType: "jsonp"
+	    });
+		//alert(request);
+  	}
+
+  	function update_rec(){
+		$("#re").css("visibility","hidden");
+	 	document.getElementById("loader").style.visibility = "visible";
+		$('#mySpinner').addClass('spinner');
+		var sch_id   = document.getElementById("sch_id").value;
+		var cir_name = document.getElementById("cir_name").value;
+		var div_name = document.getElementById("div_name").value;
+		var sch_name = document.getElementById("sch_name").value;
+		var hab_name = document.getElementById("hab_name").value;
+    	
+    	//var url = script_url+"?callback=ctrlq&amount="+amount+"&lastname="+lname+"&name="+name+"&id="+id1+"&action=insert";
+		
+    	var url = script_url+"?callback=ctrlq&hab_name="+hab_name+"&sch_name="+sch_name+"&div_name="+div_name+"&cir_name="+
+    	cir_name+"&sch_id="+sch_id+"&action=update";
+		//alert(url);
+    	var request = jQuery.ajax({
+      		crossDomain: true,
+      		url: url ,
+	    	method: "GET",
+	      	dataType: "jsonp"
+	    });
+		//alert(request);
+}
+
+  	function delete_rec(){
+	    $("#re").css("visibility","hidden");
+	    document.getElementById("loader").style.visibility = "visible";
+		var sch_id   = document.getElementById("sch_id").value;
+		var cir_name = document.getElementById("cir_name").value;
+		var div_name = document.getElementById("div_name").value;
+		var sch_name = document.getElementById("sch_name").value;
+		var hab_name = document.getElementById("hab_name").value;
+    	
+    	//var url = script_url+"?callback=ctrlq&amount="+amount+"&lastname="+lname+"&name="+name+"&id="+id1+"&action=insert";
+		
+    	var url = script_url+"?callback=ctrlq&sch_id="+sch_id+"&action=delete";
+	       // var url = script_url+"?callback=ctrlq&name="+name+"&id="+id1+"&action=delete";
+	    alert(url);
+	    var request = jQuery.ajax({
+	        crossDomain: true,
+	        url: url ,
+	        method: "GET",
+	        dataType: "jsonp"
+	    });
+	}
+
+  	function ctrlq(e) {
+	  	$("#re").html(e.result);
+		$("#re").css("visibility","visible");
+		read_value();
+	}
+
+	function read_value() {
+		$("#re").css("visibility","hidden");
+    	document.getElementById("loader").style.visibility = "visible";
+ 		var url = script_url+"?action=read";
+		$.getJSON(url, function (json) {
+	    	// Set the variables from the results array
+	   
+	        // CREATE DYNAMIC TABLE.
+	        var table = document.createElement("table");
+	        var header = table.createTHead();
+			var row = header.insertRow(0);     
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			var cell3 = row.insertCell(2);
+			var cell4 = row.insertCell(3);
+			var cell5 = row.insertCell(4);
+			
+			cell1.innerHTML = "<b>SCHID</b>";
+			cell2.innerHTML = "<b>CIRCLE</b>";
+			cell3.innerHTML = "<b>DIVISION</b>";
+			cell4.innerHTML = "<b>SCHEME</b>";
+			cell5.innerHTML = "<b>HABITATION</b>";
+			
+	    	//    SCHID	CIRCLE	DIVISION	SCHEME	HABITATION
+	        // ADD JSON DATA TO THE TABLE AS ROWS.
+	        for (var i = 0; i < json.records.length; i++) {
+	            tr = table.insertRow(-1);
+					var tabCell = tr.insertCell(-1);
+	                tabCell.innerHTML = json.records[i].SCHID;
+					tabCell = tr.insertCell(-1);
+					tabCell.innerHTML = json.records[i].CIRCLE;
+					tabCell = tr.insertCell(-1);
+					tabCell.innerHTML = json.records[i].DIVISION;
+					tabCell = tr.insertCell(-1);
+					tabCell.innerHTML = json.records[i].SCHEME;
+					tabCell = tr.insertCell(-1);
+					tabCell.innerHTML = json.records[i].HABITATION;
+			}
+	      
+
+	        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+	        var divContainer = document.getElementById("showData");
+	        divContainer.innerHTML = "";
+	        divContainer.appendChild(table);
+			document.getElementById("loader").style.visibility = "hidden";
+			$("#re").css("visibility","visible");
+	    });
+	}
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
