@@ -1,5 +1,5 @@
 <?php
-
+//To add Admin approval here
  ?>
 <!DOCTYPE html>
 <html>
